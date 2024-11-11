@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Curriculum Vitae</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Ocultar el desbordamiento durante la transición */
+            background-color: #f0f0f0; /* Color de fondo */
+            height: 100vh; /* Altura de la ventana */
+            display: flex; /* Para centrar el contenido */
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #6e7f80, #c0d6d7); /* Fondo degradado */
+            z-index: -1; /* Enviar al fondo */
+            opacity: 0; /* Inicialmente oculto */
+            transition: opacity 1s ease; /* Transición de opacidad */
+        }
+
+        .background.visible {
+            opacity: 1; /* Mostrar el fondo */
+        }
+
+        .content {
+            transform: translateY(50px); /* Inicialmente fuera de la vista */
+            opacity: 0; /* Inicialmente oculto */
+            transition: transform 0.5s ease, opacity 0.5s ease; /* Transiciones de transformación y opacidad */
+            text-align: center; /* Centrar el texto */
+        }
+
+        .content.loaded {
+            transform: translateY(0); /* Regresar a la posición original */
+            opacity: 1; /* Mostrar el contenido */
+        }
+
+        h1 {
+            font-size: 3em; /* Tamaño del título */
+            margin-bottom: 20px; /* Espacio debajo del título */
+            color: #333; /* Color del texto */
+        }
+
+        .photo-container {
+            position: relative; /* Para posicionar el nombre */
+            border-radius: 50%; /* Bordes completamente redondos */
+            overflow: hidden; /* Para que los bordes redondeados funcionen */
+            width: 300px; /* Ancho del contenedor */
+            height: 300px; /* Altura del contenedor */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+            display: flex; /* Para centrar la imagen */
+            align-items: center; /* Centrar verticalmente */
+            justify-content: center; /* Centrar horizontalmente */
+            margin: 20px auto; /* Margen automático */
+        }
+
+        img {
+            width: 100%; /* Ancho de la imagen */
+            height: auto; /* Altura automática para mantener la proporción */
+            border-radius: 50%; /* Bordes redondos en la imagen */
+        }
+
+        h3 {
+            color: #555; /* Color de los subtítulos */
+            margin: 5px 0; /* Espacio alrededor de los subtítulos */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background"></div> <!-- Fondo degradado -->
+
+    <div class="content">
+        <h1>Mi Curriculum Vitae</h1>
+
+        <div class="photo-container">
+            <img src="https://th.bing.com/th/id/OIP.iCAs9l6dEjjYdTK5SzBBUgHaJF?rs=1&pid=ImgDetMain" alt="Descripción de la imagen">
+        </div>
+
+        <h3>Nombre: Pocorena Corvalan Luis Hernan</h3>
+        <h3>DNI: 48491445</h3>
+        <h3>CUIL: 20-48491445-2</h3>
+        <h3>Edad: 16</h3>
+        <a href="hobbies.html"><strong>Mas Sobre Mi</strong></a>
+    </div>
+
+    <script>
+        // Esperar a que la página se cargue completamente
+        window.addEventListener('load', function() {
+            document.querySelector('.background').classList.add('visible'); // Mostrar el fondo
+            document.querySelector('.content').classList.add('loaded'); // Agregar clase para mostrar el contenido
+        });
+    </script>
+
+</body>
+</html>
